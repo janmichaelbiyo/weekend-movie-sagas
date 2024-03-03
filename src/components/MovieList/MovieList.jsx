@@ -12,8 +12,11 @@ function MovieList() {
     dispatch({ type: 'FETCH_MOVIES' });
   }, []);
 
-  const submitDetails = (event) => {
+  const handleMovieDetails = (event) => {
     event.preventDefault();
+    dispatch({
+      type: 'FETCH_MOVIE_DETAIL',
+    });
     history.push('/details');
   };
 
@@ -25,7 +28,7 @@ function MovieList() {
           return (
             <div data-testid="movieItem" key={movie.id}>
               <h3>{movie.title}</h3>
-              <div data-testid="toDetails" onClick={submitDetails}>
+              <div data-testid="toDetails" onClick={handleMovieDetails}>
                 <img src={movie.poster} alt={movie.title} />
               </div>
             </div>
