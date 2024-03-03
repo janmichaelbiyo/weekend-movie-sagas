@@ -24,13 +24,18 @@ function* fetchAllMovies() {
   }
 }
 
-function* fetchMovieDetail() {
+function* fetchMovieDetail(action) {
+  console.log('look here', action.payload);
   try {
-    const movieDetailResponse = yield axios.get('/api/movies');
-    yield put ({
-      type: 'SET_MOVIE_DETAIL'
-      payload: 
-    })
+    const movieDetailResponse = yield axios.get(
+      `/api/movies/details/${action.payload}`
+    );
+    yield put({
+      type: 'SET_MOVIE_DETAIL',
+      payload: movieDetailResponse.data,
+    });
+  } catch (error) {
+    console.log('Danger issue with movie detail', error);
   }
 }
 

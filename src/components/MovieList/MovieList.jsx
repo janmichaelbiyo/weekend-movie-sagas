@@ -14,8 +14,10 @@ function MovieList() {
 
   const handleMovieDetails = (event) => {
     event.preventDefault();
+    console.log(event.target);
     dispatch({
       type: 'FETCH_MOVIE_DETAIL',
+      payload: event.target.id,
     });
     history.push('/details');
   };
@@ -29,7 +31,7 @@ function MovieList() {
             <div data-testid="movieItem" key={movie.id}>
               <h3>{movie.title}</h3>
               <div data-testid="toDetails" onClick={handleMovieDetails}>
-                <img src={movie.poster} alt={movie.title} />
+                <img src={movie.poster} alt={movie.title} id={movie.id} />
               </div>
             </div>
           );

@@ -19,8 +19,9 @@ router.get('/', (req, res) => {
 });
 
 router.get('/details/:id', (req, res) => {
+  console.log('here here here', req.params.id);
   const query = `
-  SELECT "movies".title, "movies".description, "movies".poster, string_agg("genres".name, ', ') AS "Genre" FROM "movies"
+  SELECT "movies".title, "movies".description, "movies".poster, string_agg("genres".name, ', ') AS "genre" FROM "movies"
   JOIN "movies_genres" ON "movies".id = "movies_genres".movie_id
   JOIN "genres" ON "movies_genres".genre_id = "genres".id
   WHERE "movies".id = $1
@@ -28,12 +29,12 @@ router.get('/details/:id', (req, res) => {
   `;
 
   pool
-    .query(query)
+    .query(query, [req.params.id])
     .then((result) => {
-      res.send(result.rows);
+      res.send(result.rows[0]);
     })
     .catch((err) => {
-      console.log('ERROR: Get all movies', err);
+      console.log('ERROR: movie details', err);
       res.sendStatus(500);
     });
 });
