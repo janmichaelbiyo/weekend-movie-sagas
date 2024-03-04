@@ -2,6 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
+import IconButton from '@mui/material/IconButton';
+import UndoIcon from '@mui/icons-material/Undo';
+
 function MovieDetails() {
   let history = useHistory();
   const movieDetail = useSelector((store) => store.movieDetail);
@@ -18,9 +21,14 @@ function MovieDetails() {
           {movieDetail.title}, {movieDetail.description},{movieDetail.genre}
         </p>
 
-        <button data-testid="toList" onClick={handleBacktoList}>
-          Back
-        </button>
+        <IconButton
+          aria-label="back"
+          size="large"
+          data-testid="toList"
+          onClick={handleBacktoList}
+        >
+          <UndoIcon fontSize="inherit" />
+        </IconButton>
       </div>
     </>
   );
