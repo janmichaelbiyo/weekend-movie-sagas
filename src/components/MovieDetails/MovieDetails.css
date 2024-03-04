@@ -1,0 +1,25 @@
+body {
+  background-color: blanchedalmond;
+}
+
+.detailname {
+  display: block;
+  font-size: 30px;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  color: navy;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.detaildescrip {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-style: oblique;
+}
+
+.detailgenre {
+  font-size: larger;
+  font-style: italic;
+}
