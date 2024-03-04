@@ -28,8 +28,8 @@ function MovieList() {
   };
 
   return (
-    <main>
-      <h1>MovieList</h1>
+    <>
+      <h2 class="list">Movie List</h2>
 
       <section className="movies">
         <ImageList
@@ -58,7 +58,7 @@ function MovieList() {
           })}
         </ImageList>
       </section>
-    </main>
+    </>
   );
 }
 

@@ -3,12 +3,14 @@
     flex-wrap: wrap;
 } */
 
-h1 {
+.list {
   display: block;
-  font-size: 5p;
+  font-size: 60px;
   margin-top: 0.67em;
   margin-bottom: 0.67em;
   margin-left: 0;
   margin-right: 0;
   font-weight: bold;
+  color: blue;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
